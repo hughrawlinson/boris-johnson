@@ -2,10 +2,12 @@ package improbable.natures
 
 import improbable.behaviours.player.controls.physical.PlayerBehaviour
 import improbable.behaviours.player.controls.{DelegateLocalPlayerCheckToOwnerBehaviour, DelegatePlayerControlsToOwnerBehaviour}
-import improbable.corelib.natures.bot.BotComposedTransformNature
-import improbable.corelib.natures.{NatureApplication, NatureDescription}
+import improbable.corelib.natures.{BaseNature, NatureApplication, NatureDescription}
 import improbable.corelib.util.EntityOwner
-import improbable.math.{Coordinates, Vector3d}
+import improbable.corelibrary.rigidbody.RigidbodyNature
+import improbable.corelibrary.transforms.TransformNature
+import improbable.entity.physical.FreezeConstraints
+import improbable.math.Vector3d
 import improbable.papi.engine.EngineId
 import improbable.papi.entity.behaviour.EntityBehaviourDescriptor
 import improbable.player.LocalPlayerCheckState
@@ -15,7 +17,7 @@ import improbable.util.EntityPrefabs._
 
 object PlayerNature extends NatureDescription {
 
-  override def dependencies: Set[NatureDescription] = Set(BotComposedTransformNature)
+  override def dependencies: Set[NatureDescription] = Set(BaseNature, TransformNature, RigidbodyNature)
 
   override def activeBehaviours: Set[EntityBehaviourDescriptor] = {
     Set(
@@ -34,7 +36,9 @@ object PlayerNature extends NatureDescription {
         LocalPlayerCheckState()
       ),
       natures = Seq(
-        BotComposedTransformNature(entityPrefab = PLAYER, initialPosition = Coordinates(0, 0.5, 0))
+        BaseNature(entityPrefab = PLAYER),
+        TransformNature(Vector3d(0, 0.5, 0)),
+        RigidbodyNature(rotationConstraints = FreezeConstraints(x = true, y = true, z = true))
       )
     )
   }

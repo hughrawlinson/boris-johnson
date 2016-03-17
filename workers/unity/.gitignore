@@ -51,5 +51,4 @@ Assets/Resources/Compiled.meta
 # Pinnacle-specific
 FSim/
 
-
-.nugetDependencyStaging/
+.nugetDepStaging/
