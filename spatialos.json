@@ -1,6 +1,6 @@
 {
     "name": "boxes_tutorial",
     "project_version": "0.0.1",
-    "sdk_version": "4.1.0-rc-6",
+    "sdk_version": "4.1.0",
     "dependencies": []
 }
