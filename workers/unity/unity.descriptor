@@ -2,7 +2,7 @@
 	"Path": "Assets/Improbable/Dependencies",
 	"NugetDependencies": [
 		{
-			"Name": "Improbable.CoreLibraryDeprecated",
+			"Name": "Improbable.CoreLibrary",
 			"Version": null,
 			"SpatialProjectDescriptor": "../../spatialos.json"
 		},

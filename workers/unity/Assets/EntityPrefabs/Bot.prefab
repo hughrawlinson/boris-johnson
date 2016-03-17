@@ -10,8 +10,9 @@ GameObject:
   - 4: {fileID: 400000}
   - 33: {fileID: 3300000}
   - 23: {fileID: 2300000}
-  - 114: {fileID: 11493162}
   - 114: {fileID: 11431500}
+  - 114: {fileID: 11486160}
+  - 114: {fileID: 11428552}
   - 65: {fileID: 6523376}
   m_Layer: 0
   m_Name: Bot
@@ -77,6 +78,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &11428552
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ece13f1194b828443899acfcd4e10e04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AddRigidbodyOnClients: 0
+  AddRigidbodyOnFSims: 1
+  DisableRigidbodyWhenParented: 1
 --- !u!114 &11431500
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -90,7 +105,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Renderers:
   - {fileID: 2300000}
---- !u!114 &11493162
+--- !u!114 &11486160
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -98,15 +113,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e12d0610991dc0479f7d8bb9d180fd0, type: 3}
+  m_Script: {fileID: 11500000, guid: 34b7a96ae23457943ad95b2050c7580d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PositionNetworkUpdatePeriodThreshold: .0500000007
-  SlottedPositionNetworkUpdatePeriodThreshold: 1
+  ClientNonAuthoritativeMode: 0
+  ClientCanBeAuthoritative: 1
+  ClientEnableGlobalFallback: 1
+  FSimNonAuthoritativeMode: 1
+  FSimCanBeAuthoritative: 1
+  FSimEnableGlobalFallback: 1
+  UseCenterOfMassPivot: 0
+  PivotOffset: {x: 0, y: 0, z: 0}
+  NetworkUpdatePeriodThreshold: .0500000007
   PositionNetworkUpdateSquareDistanceThreshold: 9.99999975e-05
-  RotationNetworkUpdatePeriodThreshold: .0500000007
-  SlottedRotationNetworkUpdatePeriodThreshold: 1
-  RotationNetworkUpdateSquareDistanceThreshold: 9.99999975e-05
+  RotationNetworkUpdateAngleThreshold: .00999999978
+  InterpolationDelayInSeconds: .200000003
+  MinAngleToInterpolateBetween: .00999999978
+  MinDistanceToInterpolateBetween: 9.99999975e-05
+  MaxSecondsToInterpolateAfterLastUpdate: 0
+  GameObjectCanBeParented: 1
+  GameObjectCanBeParent: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
