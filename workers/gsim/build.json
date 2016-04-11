@@ -6,7 +6,7 @@
 			"Steps": [
 				{
 					"Name": "Run",
-					"Arguments": ["codegen", "--clean_before_generate", "-i", "../../schema", "-o", "generated", "--version_file_name", "../../spatialos.json", "-L", "scala" ]
+					"Arguments": ["codegen", "--clean_before_generate", "-i", "../../schema", "-o", "generated", "-L", "scala" ]
 				}
 			]
 		},

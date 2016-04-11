@@ -2,24 +2,23 @@
 **/obj/
 **/bin/
 workers/gsim/src/main/cs/*/*.csproj.user
+*.DotSettings.user
 
 # IntelliJ Generated Files
-.idea/
+workers/gsim/.idea/
 
 # SBT
-target/
+workers/gsim/**/target/
 
 # Logs
 /logs/
+toolbelt.log
 
 # Mac-specific
 **/.DS_Store
 
 # Asset Database and Library
-Data/AssetDatabase
-
-# Built out assets
-workers/unity/Assets/Improbable/EntityPrefabs/*
+build/assembly
 
 # Unity
 workers/unity/ProjectSettings/UnityAnalyticsManager.asset
@@ -27,12 +26,20 @@ workers/unity/ProjectSettings/UnityAdsSettings.asset
 
 # Schema
 workers/unity/schema.html
+workers/gsim/schema.html
 
 #Editor backup files
 *~
-toolbelt.log
 
-/build/
-/workers/unity/build/
-/workers/gsim/generated/
-/workers/gsim/logs/
+#generated schema
+workers/gsim/generated
+
+#nuget
+workers/unity/.nugetDepStaging/
+
+workers/**/build.json
+workers/**/build.sbt
+workers/**/build.properties
+workers/**/plugins.sbt
+workers/**/spatialos_worker_packages.json
+

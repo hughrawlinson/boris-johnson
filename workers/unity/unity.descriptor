@@ -1,5 +1,6 @@
 {
 	"Path": "Assets/Improbable/Dependencies",
+	"PluginPath": "Assets/Plugins/Improbable",
 	"NugetDependencies": [
 		{
 			"Name": "Improbable.CoreLibrary",
@@ -10,6 +11,9 @@
 			"Name": "Improbable.GelSharp",
 			"Version": null,
 			"SpatialProjectDescriptor": "../../spatialos.json"
+		},
+		{
+			"Name": "RakNetPlugin"
 		}
 	]
 }

@@ -1,3 +1,3 @@
-# Demonstration Project
+# Boxes Tutorial Project
 
-This project contains materials for demonstrating Improbable Fabric with a Unity3D Engine integration.
+This project contains the starting project for the Boxes Tutorial at [http://spatial.improbable.io/docs]

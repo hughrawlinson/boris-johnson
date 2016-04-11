@@ -33,9 +33,7 @@ namespace Improbable
             EngineConfiguration.Instance.UseInstrumentation = true;
             EngineConfiguration.Instance.IsDebugMode = true;
             EngineConfiguration.Instance.LinkProtocol = LinkProtocol;
-            EngineConfiguration.Instance.AppName = "boxes_tutorial";
             EngineConfiguration.Instance.MsgProcessLimitPerFrame = 0;
-            EngineConfiguration.Instance.Log4netConfigXml = "log4net-local.xml";
 
             EngineLifecycleManager.StartGame(this, gameObject);
         }
