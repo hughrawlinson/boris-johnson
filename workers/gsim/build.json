@@ -1,41 +1,61 @@
-
 {
-	"Tasks": [
-	{
-			"Name": "Codegen",
-			"Steps": [
-				{
-					"Name": "Run",
-					"Arguments": ["codegen", "--clean_before_generate", "-R", "../../build/dependencies/schema", "-i", "../../schema", "-o", "generated", "-L", "scala" ]
-				}
-			]
-		},
-		{
-			"Name": "Build",
-            "Steps": [
-                {
-                    "Name": "scala",
-                    "Arguments": ["invoke", "sbt", "pack"]
-                }
-            ]
-        },
-		{
-			"Name": "Clean",
-			"Steps": [
-				{
-					"Name": "Scala",
-					"Command": "sbt",
-					"Arguments": ["clean"],
-					"Env": {
-						"JAVA_OPTS": "-Xmx2048m -XX:ReservedCodeCacheSize=128m -Djline.terminal=jline.UnsupportedTerminal"
+  "Tasks": [
+    {
+      "Name": "Codegen",
+      "Steps": [
+        {
+          "Name": "Run",
+          "Arguments": [
+            "codegen",
+            "--clean_before_generate",
+            "-R",
+            "../../build/dependencies/schema",
+            "-i",
+            "../../schema",
+            "-o",
+            "generated",
+            "-L",
+            "scala"
+          ]
+        }
+      ]
+    },
+    {
+      "Name": "Build",
+      "Steps": [
+        {
+          "Name": "scala",
+          "Arguments": [
+            "invoke",
+            "sbt",
+            "pack"
+          ]
+        }
+      ]
+    },
+    {
+      "Name": "Clean",
+      "Steps": [
+        {
+          "Name": "Scala",
+          "Command": "sbt",
+          "Arguments": [
+            "clean"
+          ],
+          "Env": {
+            "JAVA_OPTS": "-Xmx2048m -XX:ReservedCodeCacheSize=128m -Djline.terminal=jline.UnsupportedTerminal"
           }
-				},
-				{
-					"Name": "Generated code",
-					"Arguments": ["file", "rm", "-r", "generated"]
-				}
-			]
-		}
-	]
+        },
+        {
+          "Name": "Generated code",
+          "Arguments": [
+            "file",
+            "rm",
+            "-r",
+            "generated"
+          ]
+        }
+      ]
+    }
+  ]
 }
-//4e2228591fda9c1037018417d897cd2575185d55
