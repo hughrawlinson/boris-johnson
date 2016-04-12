@@ -12,17 +12,13 @@
 		},
 		{
 			"Name": "Build",
-			"Steps": [
-				{
-					"Name": "scala",
-					"Command": "sbt",
-					"Arguments": ["dist"],
-					"Env": {
-						"JAVA_OPTS": "-Xmx2048m -XX:ReservedCodeCacheSize=128m -Djline.terminal=jline.UnsupportedTerminal"
-          }
-				}
-			]
-		},
+            "Steps": [
+                {
+                    "Name": "scala",
+                    "Arguments": ["invoke", "sbt", "pack"]
+                }
+            ]
+            },
 		{
 			"Name": "Clean",
 			"Steps": [
