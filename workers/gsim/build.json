@@ -41,10 +41,7 @@
           "Command": "sbt",
           "Arguments": [
             "clean"
-          ],
-          "Env": {
-            "JAVA_OPTS": "-Xmx2048m -XX:ReservedCodeCacheSize=128m -Djline.terminal=jline.UnsupportedTerminal"
-          }
+          ]
         },
         {
           "Name": "Generated code",

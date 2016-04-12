@@ -43,3 +43,5 @@ workers/**/build.properties
 workers/**/plugins.sbt
 workers/**/spatialos_worker_packages.json
 
+# build
+build/

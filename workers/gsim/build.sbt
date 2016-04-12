@@ -32,7 +32,7 @@ packExcludeJars := Seq(
   "scala-compiler-.*\\.jar",
   "arch-util_2.11.*\\.jar",
   "fabric-core_2.11.*\\.jar",
-  "deployment_2.11.*\\.jar" // Sadly these are applied before the full names are set.
+  "deployment_2.11.*\\.jar"
 )
 
 pack := {
@@ -53,5 +53,4 @@ pack := {
   outputDir
 }
 
-// allow toolbelt to see the stack's stdout
 fork in runMain := false
