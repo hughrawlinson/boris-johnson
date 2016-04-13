@@ -13,16 +13,13 @@ workers/gsim/**/target/
 # Logs
 /logs/
 toolbelt.log
+workers/unity/.invoke.log
 
 # Mac-specific
 **/.DS_Store
 
-# Asset Database and Library
-build/assembly
-
-# Unity
-workers/unity/ProjectSettings/UnityAnalyticsManager.asset
-workers/unity/ProjectSettings/UnityAdsSettings.asset
+# Build
+build/
 
 # Schema
 workers/unity/schema.html
@@ -42,6 +39,3 @@ workers/**/build.sbt
 workers/**/build.properties
 workers/**/plugins.sbt
 workers/**/spatialos_worker_packages.json
-
-# build
-build/
