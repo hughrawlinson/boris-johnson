@@ -11,9 +11,9 @@ GameObject:
   - 33: {fileID: 3300000}
   - 23: {fileID: 2300000}
   - 114: {fileID: 11431500}
-  - 114: {fileID: 11486160}
-  - 114: {fileID: 11428552}
   - 65: {fileID: 6523376}
+  - 114: {fileID: 11474320}
+  - 114: {fileID: 11489488}
   m_Layer: 0
   m_Name: Bot
   m_TagString: Untagged
@@ -78,20 +78,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &11428552
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ece13f1194b828443899acfcd4e10e04, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AddRigidbodyOnClients: 0
-  AddRigidbodyOnFSims: 1
-  DisableRigidbodyWhenParented: 1
 --- !u!114 &11431500
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -105,7 +91,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Renderers:
   - {fileID: 2300000}
---- !u!114 &11486160
+--- !u!114 &11474320
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -133,6 +119,20 @@ MonoBehaviour:
   MaxSecondsToInterpolateAfterLastUpdate: 0
   GameObjectCanBeParented: 1
   GameObjectCanBeParent: 1
+--- !u!114 &11489488
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ece13f1194b828443899acfcd4e10e04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AddRigidbodyOnClients: 0
+  AddRigidbodyOnFSims: 1
+  DisableRigidbodyWhenParented: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

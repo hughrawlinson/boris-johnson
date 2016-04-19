@@ -10,9 +10,9 @@ object ColoredNature extends NatureDescription {
 
   override def dependencies: Set[NatureDescription] = Set.empty
 
-  override def activeBehaviours: Set[EntityBehaviourDescriptor] = {
-    Set(descriptorOf[ColorBehaviour])
-  }
+  override def activeBehaviours: Set[EntityBehaviourDescriptor] = Set(
+    descriptorOf[ColorBehaviour]
+  )
 
   def apply(color: java.awt.Color = java.awt.Color.white): NatureApplication = {
     application(

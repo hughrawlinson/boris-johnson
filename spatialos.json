@@ -1,6 +1,12 @@
 {
-    "name": "boxes_tutorial",
-    "project_version": "0.0.1",
-    "sdk_version": "4.1.0",
-    "dependencies": []
+  "name": "boxes_tutorial",
+  "project_version": "0.0.1",
+  "sdk_version": "5.0.0",
+  "dependencies": [
+    {
+      "name": "CoreLibrary",
+      "version": "5.0.0"
+    }
+  ]
 }
+

@@ -9,7 +9,7 @@ import scala.concurrent.duration._
 import scala.util.Random
 
 class MoveRandomlyBehaviour(world: World,
-                            rigidBodyInterface: RigidbodyInterface) extends EntityBehaviour {
+                            rigidbodyInterface: RigidbodyInterface) extends EntityBehaviour {
 
   private val INTENSITY = 12.0f
 
@@ -22,7 +22,7 @@ class MoveRandomlyBehaviour(world: World,
   private def moveRandomly(): Unit = {
     val x = randomAxis()
     val z = randomAxis()
-    rigidBodyInterface.setForce(Vector3d(x, 0.0f, z).normalised * INTENSITY)
+    rigidbodyInterface.setForce(Vector3d(x, 0.0f, z).normalised * INTENSITY)
   }
 
   private def randomAxis(): Double = {

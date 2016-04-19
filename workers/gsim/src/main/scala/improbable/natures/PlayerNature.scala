@@ -17,7 +17,11 @@ import improbable.util.EntityPrefabs._
 
 object PlayerNature extends NatureDescription {
 
-  override def dependencies: Set[NatureDescription] = Set(BaseNature, TransformNature, RigidbodyNature)
+  override def dependencies: Set[NatureDescription] = Set(
+    BaseNature,
+    TransformNature,
+    RigidbodyNature
+  )
 
   override def activeBehaviours: Set[EntityBehaviourDescriptor] = {
     Set(
@@ -37,7 +41,7 @@ object PlayerNature extends NatureDescription {
       ),
       natures = Seq(
         BaseNature(entityPrefab = PLAYER),
-        TransformNature(Vector3d(0, 0.5, 0)),
+        TransformNature(globalPosition = Vector3d(0, 0.5, 0)),
         RigidbodyNature(rotationConstraints = FreezeConstraints(x = true, y = true, z = true))
       )
     )

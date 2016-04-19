@@ -6,7 +6,7 @@
 			"Steps": [
 				{
 					"Name": "Run",
-					"Arguments": ["codegen", "--clean_before_generate", "-i", "../../schema", "-o", "Assets/Gamelogic/Generated", "--version_file_name", "../../spatialos.json", "-L", "csharp" ]
+					"Arguments": ["codegen", "--clean_before_generate", "-R", "../../build/dependencies/schema", "-i", "../../schema", "-o", "Assets/Gamelogic/Generated", "-L", "csharp" ]
 				}
 			]
 		},

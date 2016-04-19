@@ -15,8 +15,8 @@ GameObject:
   - 114: {fileID: 11420206}
   - 114: {fileID: 11451516}
   - 114: {fileID: 11431500}
-  - 114: {fileID: 11487742}
-  - 114: {fileID: 11472010}
+  - 114: {fileID: 11462816}
+  - 114: {fileID: 11456444}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -237,7 +237,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OurCamera: {fileID: 2000000}
---- !u!114 &11472010
+--- !u!114 &11456444
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -251,7 +251,7 @@ MonoBehaviour:
   AddRigidbodyOnClients: 0
   AddRigidbodyOnFSims: 1
   DisableRigidbodyWhenParented: 1
---- !u!114 &11487742
+--- !u!114 &11462816
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}

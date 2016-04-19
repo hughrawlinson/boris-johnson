@@ -1,6 +1,3 @@
-import com.typesafe.sbt.packager.SettingsHelper
-import com.typesafe.sbt.packager.archetypes.JavaAppPackaging.autoImport._
-import com.typesafe.sbt.packager.universal.UniversalPlugin.autoImport._
 import scala.util.parsing.json._
 
 val nexus = Map(
@@ -9,13 +6,13 @@ val nexus = Map(
 
 resolvers.in(Global) ++= nexus.values.toSeq
 
-credentials.in(Global) ++= (Path.userHome / ".ivy2" * "*credentials").get.map(Credentials(_))
+credentials.in(Global) ++= (Path.userHome / ".ivy2" / "improbable.credentials").get.map(Credentials(_))
 
 val projectManifestText = IO.read(file("../../spatialos.json")).trim
 val projectManifestObj:Option[Any] = JSON.parseFull(projectManifestText)
 val projectManifest:Map[String,Any] = projectManifestObj.get.asInstanceOf[Map[String, Any]]
 val currentVersion = projectManifest.get("project_version").get.asInstanceOf[String]
-val improbableVersion = projectManifest.get("sdk_version").get.asInstanceOf[String]
+val improbableVersion = scala.util.Properties.envOrNone("SPATIALOS_BUILD_NUMBER").getOrElse(projectManifest.get("sdk_version").get.asInstanceOf[String])
 val projectName = projectManifest.get("name").get.asInstanceOf[String]
 
 lazy val rootProject = Project(id = projectName, base = file("."))
@@ -26,34 +23,34 @@ lazy val rootProject = Project(id = projectName, base = file("."))
   .settings(unmanagedSourceDirectories.in(Compile) += baseDirectory.value / "generated")
   .settings(libraryDependencies += "improbable" %% "universal-tiny-client" % improbableVersion)
   .settings(compile <<= (compile in Compile) dependsOn (copyResources in Compile))
-  .enablePlugins(JavaAppPackaging)
-  .settings(distZipSettings: _*)
 
-lazy val distZipSettings: Seq[Def.Setting[_]] = {
-  SettingsHelper.makeDeploymentSettings(Universal, packageBin.in(Universal), "zip") ++ Seq(
-    mainClass.in(Compile) := Some("improbable.deployment.GameLauncher"),
-    packageName.in(Universal) := "gsim",
-    bashScriptExtraDefines ++= Seq(
-      "-XX:+UseG1GC",
-      "-XX:+UnlockExperimentalVMOptions",
-      "-XX:G1NewSizePercent=25",
-      "-XX:G1MaxNewSizePercent=75",
-      "-XX:MaxGCPauseMillis=20"
-    ).map(args => s"""addJava "$args""""))
+packAutoSettings
+
+packJarNameConvention := "full"
+
+packExcludeJars := Seq(
+  "scala-compiler-.*\\.jar",
+  "arch-util_2.11.*\\.jar",
+  "fabric-core_2.11.*\\.jar",
+  "deployment_2.11.*\\.jar"
+)
+
+pack := {
+  val packDir = pack.value
+  val libDir = packDir / "lib"
+  val outputDir = (baseDirectory.value / ".." / ".." / "build" / "assembly" / "gsim").getCanonicalFile
+  if (outputDir.exists()) {
+    streams.value.log.info(s"Cleaning output directory $outputDir")
+    IO.delete(IO.listFiles(outputDir))
+  } else {
+    IO.createDirectory(outputDir)
+  }
+  streams.value.log.info(s"Copying $libDir to $outputDir")
+  IO.listFiles(libDir).foreach { f =>
+    val destFile = new File(outputDir, f.getName().replaceAll("[^a-zA-Z0-9_@.]", "_"))
+    IO.copyFile(f, destFile);
+  }
+  outputDir
 }
 
-dist := {
-  val distZipPath = dist.value
-  val outputDir = baseDirectory.value / ".." / ".." / "build" / "assembly" / "worker"
-  IO.createDirectory(outputDir)
-  val targetZipPath = outputDir / "gsim.zip"
-  IO.copyFile(distZipPath, targetZipPath, preserveLastModified = false)
-  streams.value.log.info(s"Copied $distZipPath to $targetZipPath")
-  targetZipPath
-}
-
-
-// allow toolbelt to see the stack's stdout
 fork in runMain := false
-
-//4926da6cf56f0740af08783ba26abc68af9c2e41
