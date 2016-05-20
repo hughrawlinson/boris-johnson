@@ -1,61 +1,59 @@
-
 {
-	"Tasks": [
-	{
-			"Name": "Codegen",
-			"Steps": [
-				{
-					"Name": "Run",
-					"Arguments": ["codegen", "--clean_before_generate", "-R", "../../build/dependencies/schema", "-i", "../../schema", "-o", "Assets/Gamelogic/Generated", "-L", "csharp" ]
-				}
-			]
-		},
-		{
-			"Name": "Build",
-			"Steps": [
-				{
-					"Name": "Install dependencies",
-					"Arguments": ["unity", "install"]
-				},
-				{
-					"Name": "Reload scripts",
-					"Arguments": ["unity", "invoke", "--suppress_compile_errors"]
-				},
-				{
-					"Name": "All prefabs",
-					"Arguments": ["unity", "invoke", "Improbable.Unity.EditorTools.PrefabExport.EntityPrefabExportMenus.ExportAllEntityPrefabs"]
-				},
-				{
-					"Name": "Development players",
-					"Arguments": ["unity", "invoke", "Improbable.Unity.EditorTools.Build.UnityPlayerBuilderMenu.BuildDevelopmentPlayers"]
-				},
-				{
-					"Name": "Deployment players",
-					"Arguments": ["unity", "invoke", "Improbable.Unity.EditorTools.Build.UnityPlayerBuilderMenu.BuildDeploymentPlayers"]
-				}
-			]
-		},
-		{
-			"Name": "Clean",
-			"Steps": [
-				{
-					"Name": "All prefabs",
-					"Arguments": ["unity", "invoke", "Improbable.Unity.EditorTools.PrefabExport.EntityPrefabExportMenus.CleanAllEntityPrefabs", "--allow_fail", "--suppress_compile_errors"]
-				},
-				{
-					"Name": "All players",
-					"Arguments": ["unity", "invoke", "Improbable.Unity.Editortools.Build.UnityPlayerBuilderMenu.CleanAllPlayers", "--allow_fail", "--suppress_compile_errors"]
-				},
-				{
-					"Name": "Dependencies",
-					"Arguments": ["unity", "clean"]
-				},
-				{
-					"Name": "Generated code",
-					"Arguments": ["file", "rm", "-r", "Assets/Gamelogic/Generated"]
-				}
-			]
-		}
-	]
+  "Tasks": [
+    {
+      "Name": "Codegen",
+      "Steps": [
+        {
+          "Name": "Run",
+          "Arguments": ["codegen", "worker", "--output", "Assets/Gamelogic/Generated", "--language", "csharp" ]
+        }
+      ]
+    },
+    {
+      "Name": "Build",
+      "Steps": [
+        {
+          "Name": "Install dependencies",
+          "Arguments": ["worker_package", "unpack"]
+        },
+        {
+          "Name": "Reload scripts",
+          "Arguments": ["invoke", "unity", "--suppress_compile_errors"]
+        },
+        {
+          "Name": "All prefabs",
+          "Arguments": ["invoke", "unity", "Improbable.Unity.EditorTools.PrefabExport.EntityPrefabExportMenus.ExportAllEntityPrefabs"]
+        },
+        {
+          "Name": "Development players",
+          "Arguments": ["invoke", "unity", "Improbable.Unity.EditorTools.Build.UnityPlayerBuilderMenu.BuildDevelopmentPlayers"]
+        },
+        {
+          "Name": "Deployment players",
+          "Arguments": ["invoke", "unity", "Improbable.Unity.EditorTools.Build.UnityPlayerBuilderMenu.BuildDeploymentPlayers"]
+        }
+      ]
+    },
+    {
+      "Name": "Clean",
+      "Steps": [
+        {
+          "Name": "All prefabs",
+          "Arguments": ["invoke", "unity", "Improbable.Unity.EditorTools.PrefabExport.EntityPrefabExportMenus.CleanAllEntityPrefabs", "--allow_fail", "--suppress_compile_errors"]
+        },
+        {
+          "Name": "All players",
+          "Arguments": ["invoke", "unity", "Improbable.Unity.EditorTools.Build.UnityPlayerBuilderMenu.CleanAllPlayers", "--allow_fail", "--suppress_compile_errors"]
+        },
+        {
+          "Name": "Dependencies",
+          "Arguments": ["worker_package", "clean"]
+        },
+        {
+          "Name": "Generated code",
+          "Arguments": ["codegen", "clean", "Assets/Gamelogic/Generated"]
+        }
+      ]
+    }
+  ]
 }
-//f56583a06f7aa3f83c9614597852590a96c5077d

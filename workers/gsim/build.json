@@ -1,58 +1,35 @@
 {
-  "Tasks": [
-    {
-      "Name": "Codegen",
-      "Steps": [
-        {
-          "Name": "Run",
-          "Arguments": [
-            "codegen",
-            "--clean_before_generate",
-            "-R",
-            "../../build/dependencies/schema",
-            "-i",
-            "../../schema",
-            "-o",
-            "generated",
-            "-L",
-            "scala"
-          ]
-        }
-      ]
-    },
-    {
-      "Name": "Build",
-      "Steps": [
-        {
-          "Name": "scala",
-          "Arguments": [
-            "invoke",
-            "sbt",
-            "pack"
-          ]
-        }
-      ]
-    },
-    {
-      "Name": "Clean",
-      "Steps": [
-        {
-          "Name": "Scala",
-          "Command": "sbt",
-          "Arguments": [
-            "clean"
-          ]
-        },
-        {
-          "Name": "Generated code",
-          "Arguments": [
-            "file",
-            "rm",
-            "-r",
-            "generated"
-          ]
-        }
-      ]
-    }
-  ]
+	"Tasks": [
+	{
+			"Name": "Codegen",
+			"Steps": [
+				{
+					"Name": "Run",
+					"Arguments": ["codegen", "worker", "--output", "generated", "--language", "scala" ]
+				}
+			]
+		},
+		{
+			"Name": "Build",
+			"Steps": [
+				{
+					"Name": "scala",
+					"Arguments": ["invoke", "sbt", "workerPackage"]
+				}
+			]
+		},
+		{
+			"Name": "Clean",
+			"Steps": [
+				{
+					"Name": "Scala",
+					"Arguments": ["invoke", "sbt", "clean"]
+				},
+				{
+					"Name": "Generated code",
+					"Arguments": ["codegen", "clean", "generated"]
+				}
+			]
+		}
+	]
 }
