@@ -1,9 +1,0 @@
-.iw-dependencies/
-target/
-bin/
-obj/
-*.suo
-schema.html
-*.DotSettings.user
-
-logs/
