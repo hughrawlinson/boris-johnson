@@ -1,11 +1,11 @@
 {
 	"name": "boxes_tutorial",
 	"project_version": "0.0.1",
-	"sdk_version": "6.0.0",
+	"sdk_version": "6.0.1",
 	"dependencies": [
 		{
 			"name": "CoreLibrary",
-			"version": "6.0.0"
+			"version": "6.0.1"
 		}
 	]
 }
