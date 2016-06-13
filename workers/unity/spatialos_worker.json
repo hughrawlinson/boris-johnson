@@ -1,4 +1,4 @@
 {
   "build_type": "unity",
-  "generate_build_scripts": false
+  "generate_build_scripts": true
 }
