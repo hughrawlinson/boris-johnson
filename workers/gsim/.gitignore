@@ -1,5 +1,6 @@
 build.json
 target
+generated/
 spatialos_nexus.sbt
 spatialos_pack.sbt
 build.properties

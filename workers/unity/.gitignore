@@ -1,5 +1,8 @@
 build.json
-Library
 Temp
 .invoke.log
 Improbable.meta
+Assets/Improbable
+Assets/Plugins/Improbable
+Library/
+Assets/Gamelogic/Generated/
