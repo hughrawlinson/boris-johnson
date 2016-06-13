@@ -1,0 +1,8 @@
+build.json
+target
+generated/
+spatialos_nexus.sbt
+spatialos_pack.sbt
+build.properties
+spatialos_pack_plugin.sbt
+SpatialOSBuild.scala
