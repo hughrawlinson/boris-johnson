@@ -6,3 +6,9 @@ Assets/Improbable
 Assets/Plugins/Improbable
 Library/
 Assets/Gamelogic/Generated/
+Assembly-CSharp-Editor.csproj
+Assembly-CSharp-firstpass.csproj
+Assembly-CSharp.csproj
+obj/
+unity.sln
+unity.v11.suo
