@@ -17,24 +17,25 @@ object BotNature extends NatureDescription {
     BaseNature,
     TransformNature,
     RigidbodyNature,
-    ColoredNature
+    ColoredNature,
+    FlammableNature
   )
 
   override def activeBehaviours: Set[EntityBehaviourDescriptor] = Set(
     descriptorOf[MoveRandomlyBehaviour],
-    descriptorOf[PropagateFireBehaviour],
-    descriptorOf[SetColorFromFireBehaviour],
-    descriptorOf[FireIncreaseTemperatureBehaviour]
+    descriptorOf[PropagateFireBehaviour]
   )
 
   def apply(initialPosition: Vector3d, onFire: Boolean = false): NatureApplication = {
     application(
-      states = Seq(Fire(onFire,32)),
+      states = Seq(),
       natures = Seq(
         BaseNature(entityPrefab = BOT),
         TransformNature(globalPosition = initialPosition),
         RigidbodyNature(drag = 0.2f),
-        ColoredNature(color = java.awt.Color.white))
+        ColoredNature(color = java.awt.Color.white),
+        FlammableNature(onFire)
+      )
     )
   }
 

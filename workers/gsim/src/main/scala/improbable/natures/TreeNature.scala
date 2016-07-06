@@ -8,7 +8,7 @@ import improbable.util.EntityPrefabs.TREE
 
 object TreeNature extends NatureDescription {
 
-  override def dependencies: Set[NatureDescription] = Set(BaseNature, TransformNature)
+  override def dependencies: Set[NatureDescription] = Set(BaseNature, TransformNature, ColoredNature, FlammableNature)
 
   override def activeBehaviours: Set[EntityBehaviourDescriptor] = Set.empty
 
@@ -16,7 +16,9 @@ object TreeNature extends NatureDescription {
     application(
       natures = Seq(
         BaseNature(entityPrefab = TREE),
-        TransformNature(globalPosition = initialPosition)
+        TransformNature(globalPosition = initialPosition),
+        ColoredNature(java.awt.Color.green),
+        FlammableNature(onFire = false)
       )
     )
   }
