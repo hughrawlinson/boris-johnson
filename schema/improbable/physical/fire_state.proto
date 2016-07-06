@@ -7,6 +7,7 @@ import "improbable/entity_state.proto";
 message FireData {
   // Whether something is on fire
   optional bool onFire = 1;
+  optional int32 temperature = 2;
 }
 
 extend improbable.EntityState {

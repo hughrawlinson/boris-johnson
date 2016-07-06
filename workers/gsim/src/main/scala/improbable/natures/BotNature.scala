@@ -2,7 +2,7 @@ package improbable.natures
 
 import improbable.behaviours.bot.MoveRandomlyBehaviour
 import improbable.behaviours.color.SetColorFromFireBehaviour
-import improbable.behaviours.physical.PropagateFireBehaviour
+import improbable.behaviours.physical.{FireIncreaseTemperatureBehaviour, PropagateFireBehaviour}
 import improbable.corelib.natures.{BaseNature, NatureApplication, NatureDescription}
 import improbable.corelibrary.rigidbody.RigidbodyNature
 import improbable.corelibrary.transforms.TransformNature
@@ -23,12 +23,13 @@ object BotNature extends NatureDescription {
   override def activeBehaviours: Set[EntityBehaviourDescriptor] = Set(
     descriptorOf[MoveRandomlyBehaviour],
     descriptorOf[PropagateFireBehaviour],
-    descriptorOf[SetColorFromFireBehaviour]
+    descriptorOf[SetColorFromFireBehaviour],
+    descriptorOf[FireIncreaseTemperatureBehaviour]
   )
 
   def apply(initialPosition: Vector3d, onFire: Boolean = false): NatureApplication = {
     application(
-      states = Seq(Fire(onFire)),
+      states = Seq(Fire(onFire,32)),
       natures = Seq(
         BaseNature(entityPrefab = BOT),
         TransformNature(globalPosition = initialPosition),

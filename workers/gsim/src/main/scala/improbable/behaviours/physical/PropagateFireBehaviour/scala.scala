@@ -24,6 +24,8 @@ class PropagateFireBehaviour(fire: FireWriter, world: World, entity: Entity) ext
 
   def ignite(): Unit = {
     fire.update.onFire(true).finishAndSend()
+    fire.update.temperature(34).finishAndSend()
+
     world.timing.every(500.milliseconds) {
       spreadFire()
     }
