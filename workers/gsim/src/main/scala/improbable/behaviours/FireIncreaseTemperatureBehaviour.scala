@@ -15,8 +15,8 @@ class FireIncreaseTemperatureBehaviour(fire: FireWriter, world: World, entity: E
     }
   }
   def updateTempAndScheduleNewUpdate: Unit = {
-    world.timing.after(500.milliseconds) {
-      if (fire.temperature < 132) {
+    if (fire.onFire && fire.temperature < 132) {
+      world.timing.after(500.milliseconds) {
         fire.update.temperature(fire.temperature + 1).finishAndSend()
         updateTempAndScheduleNewUpdate
       }

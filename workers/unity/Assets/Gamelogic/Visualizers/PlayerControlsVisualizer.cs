@@ -18,6 +18,10 @@ namespace Assets.Gamelogic.Visualizers
         public void Update()
         {
             PlayerControls.Update.MovementDirection(GetMovementDirection()).FinishAndSend();
+			if (InputSource.GetButton("Fire1"))
+			{
+				PlayerControls.Update.TriggerExtinguishRequested().FinishAndSend();
+			}
         }
 
         private Vector3 GetMovementDirection()

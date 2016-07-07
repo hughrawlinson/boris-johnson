@@ -1,0 +1,13 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Gamelogic/Visualizers/RaycastVisualiser.cs">
+    <Files>
+      <File FileName="Assets/Gamelogic/Visualizers/RaycastVisualiser.cs" Line="7" Column="35" />
+      <File FileName="Assets/Gamelogic/Generated/improbable/physical/RaycastRequest.cs" Line="82" Column="65" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
